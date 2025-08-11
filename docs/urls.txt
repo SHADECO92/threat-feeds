@@ -1982,7 +1982,6 @@ http://107.150.0.18/ppc
 http://107.150.0.18/sh4
 http://107.150.0.18/ssh.sh
 http://107.150.0.18/x86
-http://107.150.0.56:3000/ah.zip
 http://107.150.0.86/files/HBRG6451NHBR45NHJ.txt
 http://107.150.0.86/files/todos.bmp
 http://107.150.20.151/arquivo_9be396cbd7b64daca3454227fdc64280.txt
@@ -4814,6 +4813,7 @@ http://115.55.220.200:57599/i
 http://115.55.221.111:41788/i
 http://115.55.221.47:47378/bin.sh
 http://115.55.221.47:47378/i
+http://115.55.223.116:37879/bin.sh
 http://115.55.223.250:56118/bin.sh
 http://115.55.223.83:46793/bin.sh
 http://115.55.223.83:46793/i
@@ -7172,7 +7172,6 @@ http://117.209.86.204:40114/bin.sh
 http://117.209.86.204:40114/i
 http://117.209.86.252:43868/i
 http://117.209.86.32:47554/bin.sh
-http://117.209.86.34:38029/i
 http://117.209.86.56:47783/i
 http://117.209.86.59:43616/i
 http://117.209.86.79:33033/bin.sh
@@ -29056,7 +29055,6 @@ http://219.157.22.205:34792/bin.sh
 http://219.157.22.205:34792/i
 http://219.157.22.207:35981/bin.sh
 http://219.157.22.207:35981/i
-http://219.157.23.158:51930/bin.sh
 http://219.157.23.158:51930/i
 http://219.157.23.25:38324/bin.sh
 http://219.157.23.33:51044/bin.sh
@@ -31306,6 +31304,7 @@ http://27.202.220.124:51315/bin.sh
 http://27.202.220.124:51315/i
 http://27.202.220.126:38319/bin.sh
 http://27.202.220.126:38319/i
+http://27.202.23.99:45479/bin.sh
 http://27.202.24.165:34603/bin.sh
 http://27.202.24.165:34603/i
 http://27.202.242.149:39860/bin.sh
@@ -37426,7 +37425,6 @@ http://45.171.177.193:40428/i
 http://45.171.177.193:43521/bin.sh
 http://45.171.177.193:43521/i
 http://45.171.177.193:43982/bin.sh
-http://45.171.177.193:51020/bin.sh
 http://45.171.177.193:51020/i
 http://45.171.177.193:52552/bin.sh
 http://45.171.177.193:52552/i
@@ -39148,7 +39146,6 @@ http://58.22.95.207:6868/info.zip
 http://58.22.95.215:6868/Video.scr
 http://58.22.95.233:6868/Video.scr
 http://58.220.203.74:6713/help.scr
-http://58.23.123.109:47228/bin.sh
 http://58.23.123.109:47228/i
 http://58.23.214.190:36541/bin.sh
 http://58.23.214.190:36541/i
@@ -40011,7 +40008,6 @@ http://59.96.139.105:39121/bin.sh
 http://59.96.139.105:39121/i
 http://59.96.139.105:45811/bin.sh
 http://59.96.139.105:45811/i
-http://59.96.139.113:40238/i
 http://59.96.139.123:46324/bin.sh
 http://59.96.139.123:46324/i
 http://59.96.139.191:40799/bin.sh
@@ -49617,6 +49613,7 @@ http://jmanga.co/test.sh
 http://jmanga.co/w.sh
 http://jmanga.co/wget.sh
 http://jobcity.com/img/RM0XpX/
+http://jointings.org/eng/wp-content/plugins/featurific-for-wordpress/1
 http://jointings.org/eng/wp-content/plugins/featurific-for-wordpress/2
 http://jointings.org/eng/wp-content/plugins/featurific-for-wordpress/3
 http://jpteach202.great-site.net/arquivo_884ace330492421285951f6a8a3d1bd2.txt
@@ -55586,6 +55583,7 @@ https://github.com/Nigsgehe/leakyGPT/releases/download/v1.0/Software.zip
 https://github.com/Nigsgehe/leakyGPT/releases/download/v2.0/Software.zip
 https://github.com/Nikil1602/Bypass-Hwid-Spoofer/releases/download/v2.7.6/bypass-hwid-spoofer-v276.zip
 https://github.com/Nirvash27/doctor-dok/releases/download/v1.0/Software.zip
+https://github.com/Nodiq/TempMail/releases/download/v2.0/Software.zip
 https://github.com/Nodiq/ranksshow/releases/download/v2.0/Software.zip
 https://github.com/Nour10381/CosmicStar/releases/download/v2.0/Software.zip
 https://github.com/Noureddine-nt9/rgsdr/raw/refs/heads/main/cheet.exe
@@ -57540,7 +57538,6 @@ https://img1.wsimg.com/blobby/go/6ab86f22-a419-4e4f-91d4-5a654823f744/downloads/
 https://img1.wsimg.com/blobby/go/6abf7f7e-d12c-48f3-aa9a-703f4ccff8d7/downloads/81403469667.pdf
 https://img1.wsimg.com/blobby/go/6ae40ccb-f0fa-4b6b-bfcc-06032a30498c/downloads/logical_thinking_worksheets_for_kindergarten.pdf
 https://img1.wsimg.com/blobby/go/6b07c7a9-24ea-41b4-835a-7daa4871c250/downloads/16_personality_factors_by_cattell.pdf
-https://img1.wsimg.com/blobby/go/6bb5c8cf-e89d-49c0-aeeb-7278d39f6b32/downloads/fiche_grcf_bts_gpme.pdf
 https://img1.wsimg.com/blobby/go/6be9a470-c465-4776-ab76-53713c51537a/downloads/30164245456.pdf
 https://img1.wsimg.com/blobby/go/6be9a470-c465-4776-ab76-53713c51537a/downloads/nokura.pdf
 https://img1.wsimg.com/blobby/go/6c9fdcec-b167-4620-b064-54b8917c32b8/downloads/57211354597.pdf
@@ -58227,7 +58224,6 @@ https://jakestrack.com/zsps.zip
 https://javasplugin.com/arquivos/xworm-@b4s364@-@Cr1pt3r@@.txt
 https://javasplugin.com/plugin-atualizacao/
 https://jayexecutive.co.ke/s/SSA-236-5263-89.msi
-https://jevun.ru/
 https://jfbd.com/f/c
 https://jobcity.com/img/RM0XpX/
 https://jobs.joumizni.de/bin/support.client.exe?i=&e=Support&y=Guest&r=
@@ -58458,6 +58454,7 @@ https://loader.oxy.st/get/19f3c14691d28ab174a7935987ce2182/
 https://login.kernaltpoiceplaned.com/bin/support.client.exe?i=&e=Support&y=Guest&r=
 https://login.southsideblackancestry.com/bin/support.client.exe?i=&e=Support&y=Guest&r=
 https://logs.joumizni.de/bin/support.client.exe?i=&e=Support&y=Guest&r=
+https://lopakia1325a.xyz/YuFIo
 https://losartan.top/lv/select.js
 https://losartan.top/lv/xfa.js
 https://louisvuitton.mom/Stb/PokerFace/init.php?id=Elton
@@ -61454,7 +61451,6 @@ https://zt45gg.top/lsass/jsson.js
 https://zt45gg.top/lsass/select.js
 https://zx.pyja.press/hc2n214pxl.sh
 https://zx.pyja.press/lsvfmmqlvh.sh
-https://zx.pyja.press/w9gk48ebgl.sh
 https://zx.pyja.press/z5uujea462.sh
 https://zynova.kesug.com/new_image.jpg
 https://zyzzyva.pipesnmetals.com/?u=file
