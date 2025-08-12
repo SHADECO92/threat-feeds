@@ -1,0 +1,110 @@
+# ===============================
+# SHADE Global Allowlist (Domains)
+# Lines starting with # are ignored
+# Suffix match: "example.com" also allows any subdomain like "api.example.com"
+# ===============================
+
+# --- MUST-HAVE: ThreatDown / Malwarebytes (Nebula/EDR) ---
+threatdown.com
+cloud.threatdown.com
+api.threatdown.com
+machines.threatdown.com
+telemetry.threatdown.com
+cdn.threatdown.com
+ars.cloud.threatdown.com
+arsws.cloud.threatdown.com
+sirius.threatdown.com
+ark.threatdown.com
+
+malwarebytes.com
+cloud.malwarebytes.com
+api.malwarebytes.com
+socket.cloud.malwarebytes.com
+detect-remediate.cloud.malwarebytes.com
+downloads.malwarebytes.com
+links.malwarebytes.com
+telemetry.malwarebytes.com
+ars.cloud.malwarebytes.com
+arsws.cloud.malwarebytes.com
+
+mwbsys.com
+ark.mwbsys.com
+cdn.mwbsys.com
+keystone.mwbsys.com
+keystone-akamai.mwbsys.com
+meps.mwbsys.com
+repositories.mwbsys.com
+sirius.mwbsys.com
+
+mb-cosmos.com
+hubble.mb-cosmos.com
+
+mbamupdates.com
+data-cdn.mbamupdates.com
+data-cdn-static.mbamupdates.com
+
+# S3 buckets used by Nebula/ThreatDown (whitelist exact FQDNs)
+cosmos-shuriken-samples-mb-prod.s3.amazonaws.com
+nebula-diagnostics-mb-prod.s3.amazonaws.com
+nebula-helix-syslog-mb-prod.s3.amazonaws.com
+
+# ThreatDown DNS Filtering helper
+cloudflare-gateway.com
+
+# --- RECOMMENDED CORE INFRA (reduce noisy false-positives) ---
+# Browsers / updates
+gvt1.com
+gvt2.com
+gvt3.com
+googleapis.com
+googleusercontent.com
+
+# Microsoft services / telemetry / Office
+microsoft.com
+office.com
+windowsupdate.com
+aria.microsoft.com
+browser.pipe.aria.microsoft.com
+measure.office.com
+fp.measure.office.com
+upload.fp.measure.office.com
+exp-tas.com
+
+# CDNs
+akamai.net
+akamaized.net
+cdn.cloudflare.net
+cloudfront.net
+fastly.net
+
+# --- OPTIONAL: Analytics / Ads / APM (uncomment if you WANT to allow them) ---
+# google-analytics.com
+# googletagmanager.com
+# googletagservices.com
+# googlesyndication.com
+# doubleclick.net
+# tpc.googlesyndication.com
+# pagead2.googlesyndication.com
+# amazon-adsystem.com
+# aax-eu.amazon-adsystem.com
+# s.amazon-adsystem.com
+# demdex.net
+# scorecardresearch.com
+# contentsquare.net
+# clarity.ms
+# datadoghq.com
+# nr-data.net
+# eu01.nr-data.net
+# amplitude.com
+# mixpanel.com
+# fullstory.com
+# adobe.com
+# sstats.adobe.com
+# brandmetrics.com
+
+# --- OPTIONAL: Vendors you use (add as needed) ---
+# telemetry.acronis.com
+# incoming.telemetry.mozilla.org
+# snap.licdn.com
+# c.bing.com
+# c.pub.network
