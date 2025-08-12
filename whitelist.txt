@@ -78,13 +78,13 @@ cloudfront.net
 fastly.net
 
 # --- OPTIONAL: Analytics / Ads / APM (uncomment if you WANT to allow them) ---
-# google-analytics.com
-# googletagmanager.com
-# googletagservices.com
-# googlesyndication.com
-# doubleclick.net
-# tpc.googlesyndication.com
-# pagead2.googlesyndication.com
+google-analytics.com
+googletagmanager.com
+googletagservices.com
+googlesyndication.com
+doubleclick.net
+tpc.googlesyndication.com
+pagead2.googlesyndication.com
 # amazon-adsystem.com
 # aax-eu.amazon-adsystem.com
 # s.amazon-adsystem.com
@@ -98,13 +98,13 @@ fastly.net
 # amplitude.com
 # mixpanel.com
 # fullstory.com
-# adobe.com
-# sstats.adobe.com
+adobe.com
+sstats.adobe.com
 # brandmetrics.com
 
 # --- OPTIONAL: Vendors you use (add as needed) ---
 # telemetry.acronis.com
-# incoming.telemetry.mozilla.org
+incoming.telemetry.mozilla.org
 # snap.licdn.com
 # c.bing.com
 # c.pub.network
