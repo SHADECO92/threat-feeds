@@ -77,6 +77,29 @@ cdn.cloudflare.net
 cloudfront.net
 fastly.net
 
+# ---- BUSINESS/APP TELEMETRY & ANALYTICS (allow) ----
+google-analytics.com
+googletagmanager.com
+googletagservices.com
+googleadservices.com
+tpc.googlesyndication.com
+clarity.ms
+c.bing.com
+bat.bing.com
+datadoghq.com
+browser-intake-datadoghq.com
+nr-data.net
+bam.nr-data.net
+bam.eu01.nr-data.net
+amplitude.com
+api.lab.amplitude.com
+mixpanel.com
+api-js.mixpanel.com
+fullstory.com
+contentsquare.net
+sstats.adobe.com
+
+
 # --- OPTIONAL: Analytics / Ads / APM (uncomment if you WANT to allow them) ---
 google-analytics.com
 googletagmanager.com
