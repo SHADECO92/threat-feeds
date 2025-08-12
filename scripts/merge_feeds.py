@@ -1,3 +1,12 @@
+import re
+
+# AWS Access Key IDs and Secret Access Keys (common patterns)
+AWS_AKID_RE   = re.compile(r'(?:AKIA|ASIA|AGPA|AIDA|AROA|AIPA|ANPA)[0-9A-Z]{16}')
+AWS_SAK_RE    = re.compile(r'(?<![A-Za-z0-9/+=])[A-Za-z0-9/+=]{40}(?![A-Za-z0-9/+=])')
+
+def looks_like_secret(s: str) -> bool:
+    return bool(AWS_AKID_RE.search(s) or AWS_SAK_RE.search(s))
+
 #!/usr/bin/env python3
 import csv, io, re, requests, sys
 from urllib.parse import urlparse
