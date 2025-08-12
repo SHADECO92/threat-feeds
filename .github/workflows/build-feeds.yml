@@ -23,5 +23,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/*.txt
-          git commit -m "Update feeds" || echo "No changes"
-          git push
+# … your existing build steps …
+
+- name: Build feeds
+  run: |
+    python scripts/merge_feeds.py
+    mkdir -p dist
+    cp docs/*.txt dist/   # or write your script to output directly into dist/
+
+# Publish to GitHub Pages without committing files
+- name: Upload Pages artifact
+  uses: actions/upload-pages-artifact@v3
+  with:
+    path: dist
+
+- name: Deploy to GitHub Pages
+  id: deploy
+  uses: actions/deploy-pages@v4
+
