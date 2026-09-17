@@ -157,40 +157,122 @@ def main():
 
     ips, domains, urls = set(), set(), set()
 
+    total_sources = (
+        len(FEEDS["ips"])
+        + len(FEEDS["domains"])
+        + len(FEEDS["urls"])
+    )
+    successful_sources = 0
+    failed_sources = 0
+
+    print("\n=== SOURCE STATUS ===")
+
+    # ---- IP feeds ----
     for u in FEEDS["ips"]:
         try:
-            ips |= clean_ips(fetch(u))
+            parsed = clean_ips(fetch(u))
+            ips |= parsed
+            successful_sources += 1
+            print(
+                f"[OK]   IP      {urlparse(u).hostname:<35} "
+                f"{len(parsed):>8} indicators"
+            )
         except Exception as e:
-            print(f"[IP] {u} -> {e}", file=sys.stderr)
+            failed_sources += 1
+            print(
+                f"[FAIL] IP      {urlparse(u).hostname:<35} {e}",
+                file=sys.stderr,
+            )
 
+    # ---- Domain feeds ----
     for u in FEEDS["domains"]:
         try:
-            domains |= clean_domains(fetch(u))
+            parsed = clean_domains(fetch(u))
+            domains |= parsed
+            successful_sources += 1
+            print(
+                f"[OK]   DOMAIN  {urlparse(u).hostname:<35} "
+                f"{len(parsed):>8} indicators"
+            )
         except Exception as e:
-            print(f"[DOMAIN] {u} -> {e}", file=sys.stderr)
+            failed_sources += 1
+            print(
+                f"[FAIL] DOMAIN  {urlparse(u).hostname:<35} {e}",
+                file=sys.stderr,
+            )
 
+    # ---- URL feeds ----
     for u in FEEDS["urls"]:
         try:
-            urls |= clean_urls(fetch(u), u)
+            parsed = clean_urls(fetch(u), u)
+            urls |= parsed
+            successful_sources += 1
+            print(
+                f"[OK]   URL     {urlparse(u).hostname:<35} "
+                f"{len(parsed):>8} indicators"
+            )
         except Exception as e:
-            print(f"[URL] {u} -> {e}", file=sys.stderr)
+            failed_sources += 1
+            print(
+                f"[FAIL] URL     {urlparse(u).hostname:<35} {e}",
+                file=sys.stderr,
+            )
 
-    # ---- apply whitelist (suffix match) ----
+    # ---- apply whitelist ----
     domains_before = len(domains)
     domains = {d for d in domains if not suffix_match(d, wl)}
     domains_removed = domains_before - len(domains)
 
     urls_before = len(urls)
     filtered_urls = set()
+
     for u in urls:
         host = domain_from_url(u)
         if host and suffix_match(host, wl):
-            continue  # skip this URL (whitelisted)
+            continue
         filtered_urls.add(u)
+
     urls_removed = urls_before - len(filtered_urls)
     urls = filtered_urls
 
-    # ---- write outputs in docs/ ----
+    # ---- safety checks ----
+    MIN_IPS = 1000
+    MIN_DOMAINS = 5000
+    MIN_URLS = 5000
+
+    print("\n=== SOURCE SUMMARY ===")
+    print(
+        f"Successful sources: {successful_sources}/{total_sources}"
+    )
+    print(f"Failed sources:     {failed_sources}/{total_sources}")
+
+    print("\n=== FINAL COUNTS ===")
+    print(f"IPs:     {len(ips)}")
+    print(
+        f"Domains: {len(domains)} "
+        f"(-{domains_removed} whitelisted)"
+    )
+    print(
+        f"URLs:    {len(urls)} "
+        f"(-{urls_removed} whitelisted)"
+    )
+
+    if len(ips) < MIN_IPS:
+        raise RuntimeError(
+            f"Safety check failed: only {len(ips)} IP indicators generated"
+        )
+
+    if len(domains) < MIN_DOMAINS:
+        raise RuntimeError(
+            f"Safety check failed: only {len(domains)} domain indicators generated"
+        )
+
+    if len(urls) < MIN_URLS:
+        raise RuntimeError(
+            f"Safety check failed: only {len(urls)} URL indicators generated"
+        )
+
+    # ---- write outputs ----
     with open("docs/ips.txt", "w", encoding="utf-8", newline="\n") as f:
         for x in sorted(ips):
             f.write(x + "\n")
@@ -203,7 +285,9 @@ def main():
         for x in sorted(urls):
             f.write(x + "\n")
 
-    print(f"FINAL COUNTS → IPs:{len(ips)}  Domains:{len(domains)} (-{domains_removed})  URLs:{len(urls)} (-{urls_removed})")
+    print("\nSAFETY CHECKS: PASSED")
+    print("Feed files written successfully.")
+
 
 if __name__ == "__main__":
     main()
