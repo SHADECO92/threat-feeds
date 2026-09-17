@@ -17,7 +17,6 @@ FEEDS = {
         "https://feodotracker.abuse.ch/downloads/ipblocklist_recommended.txt",
         "http://cinsscore.com/list/ci-badguys.txt",
         "https://lists.blocklist.de/lists/all.txt",
-        "https://raw.githubusercontent.com/firehol/blocklist-ipsets/master/firehol_level1.netset",
     ],
     "domains": [
         "https://urlhaus.abuse.ch/downloads/hostfile/",
@@ -113,15 +112,26 @@ def normalize_domain(token: str) -> str | None:
 
 def clean_domains(text: str) -> set[str]:
     out = set()
+
     for raw in text.splitlines():
         raw = raw.strip()
-        if not raw or raw.startswith(("#",";")):
+
+        if not raw or raw.startswith(("#", ";")):
             continue
-        if raw.startswith(("0.0.0.0 ", "127.0.0.1 ")):
-            raw = raw.split(maxsplit=1)[1]
+
+        parts = raw.split()
+
+        # Hosts-file format:
+        # 127.0.0.1 example.com
+        # 0.0.0.0 example.com
+        if len(parts) >= 2 and parts[0] in ("0.0.0.0", "127.0.0.1"):
+            raw = parts[1]
+
         dom = normalize_domain(raw)
+
         if dom:
             out.add(dom)
+
     return out
 
 def clean_urls(text: str, source: str) -> set[str]:
