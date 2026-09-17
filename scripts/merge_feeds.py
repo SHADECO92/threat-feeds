@@ -26,7 +26,7 @@ FEEDS = {
     ],
     "urls": [
         "https://urlhaus.abuse.ch/downloads/text/",
-        "http://data.phishtank.com/data/online-valid.csv",
+        "https://data.phishtank.com/data/online-valid.csv",
         "http://malc0de.com/bl/BOOT",
     ],
 }
@@ -128,7 +128,7 @@ def clean_domains(text: str) -> set[str]:
 
 def clean_urls(text: str, source: str) -> set[str]:
     out = set()
-    if "phishtank.com" in source:
+    if urlparse(source).hostname == "data.phishtank.com":
         reader = csv.reader(io.StringIO(text))
         next(reader, None)
         for row in reader:
