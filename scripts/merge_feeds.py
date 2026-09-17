@@ -1,4 +1,4 @@
-import re
+import csv, io, os, re, requests, sys
 
 # AWS Access Key IDs and Secret Access Keys (common patterns)
 AWS_AKID_RE   = re.compile(r'(?:AKIA|ASIA|AGPA|AIDA|AROA|AIPA|ANPA)[0-9A-Z]{16}')
@@ -38,6 +38,64 @@ def fetch(url: str) -> str:
     r = requests.get(url, timeout=TIMEOUT)
     r.raise_for_status()
     return r.text.replace("\r", "")
+
+def fetch_threatfox() -> tuple[set[str], set[str], set[str]]:
+    auth_key = os.environ.get("THREATFOX_AUTH_KEY")
+
+    if not auth_key:
+        raise RuntimeError("THREATFOX_AUTH_KEY is not configured")
+
+    headers = {
+        "Auth-Key": auth_key,
+        "Content-Type": "application/json",
+    }
+
+    payload = {
+        "query": "get_iocs",
+        "days": 7,
+    }
+
+    r = requests.post(
+        "https://threatfox-api.abuse.ch/api/v1/",
+        headers=headers,
+        json=payload,
+        timeout=TIMEOUT,
+    )
+
+    r.raise_for_status()
+    data = r.json()
+
+    if data.get("query_status") != "ok":
+        raise RuntimeError(
+            f"ThreatFox API returned status: {data.get('query_status')}"
+        )
+
+    tf_ips = set()
+    tf_domains = set()
+    tf_urls = set()
+
+    for item in data.get("data", []):
+        ioc = str(item.get("ioc", "")).strip()
+        ioc_type = str(item.get("ioc_type", "")).lower()
+
+        if not ioc:
+            continue
+
+        if ioc_type == "domain":
+            domain = normalize_domain(ioc)
+            if domain:
+                tf_domains.add(domain)
+
+        elif ioc_type == "url":
+            if ioc.startswith(("http://", "https://")):
+                tf_urls.add(ioc)
+
+        elif ioc_type == "ip:port":
+            ip = ioc.rsplit(":", 1)[0]
+            if IPV4_RE.match(ip):
+                tf_ips.add(ip)
+
+    return tf_ips, tf_domains, tf_urls
 
 def suffix_match(domain: str, wl: set[str]) -> bool:
     """Return True if domain equals or is a subdomain of any whitelist entry."""
@@ -176,6 +234,34 @@ def main():
     failed_sources = 0
 
     print("\n=== SOURCE STATUS ===")
+
+
+        # ---- ThreatFox ----
+    try:
+        tf_ips, tf_domains, tf_urls = fetch_threatfox()
+
+        ips |= tf_ips
+        domains |= tf_domains
+        urls |= tf_urls
+
+        successful_sources += 1
+        total_sources += 1
+
+        print(
+            f"[OK]   THREATFOX "
+            f"IPs:{len(tf_ips)} "
+            f"Domains:{len(tf_domains)} "
+            f"URLs:{len(tf_urls)}"
+        )
+
+    except Exception as e:
+        failed_sources += 1
+        total_sources += 1
+
+        print(
+            f"[FAIL] THREATFOX {e}",
+            file=sys.stderr,
+        )
 
     # ---- IP feeds ----
     for u in FEEDS["ips"]:
