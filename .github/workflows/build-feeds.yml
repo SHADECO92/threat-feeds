@@ -33,16 +33,12 @@ jobs:
           pip install requests
 
       - name: Build feeds
+        env:
+          THREATFOX_AUTH_KEY: ${{ secrets.THREATFOX_AUTH_KEY }}
         run: |
           python scripts/merge_feeds.py
           mkdir -p dist
-          # if your script writes to docs/, copy them to dist/
           cp docs/*.txt dist/
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
 
   deploy:
     needs: build
