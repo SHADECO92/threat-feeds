@@ -22,12 +22,10 @@ FEEDS = {
     "domains": [
         "https://urlhaus.abuse.ch/downloads/hostfile/",
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
-        "https://mirror1.malwaredomains.com/files/justdomains",
     ],
     "urls": [
         "https://urlhaus.abuse.ch/downloads/text/",
         "https://data.phishtank.com/data/online-valid.csv",
-        "http://malc0de.com/bl/BOOT",
     ],
 }
 
